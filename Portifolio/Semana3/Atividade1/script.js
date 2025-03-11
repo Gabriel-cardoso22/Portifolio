@@ -1,20 +1,21 @@
-document.getElementById("botao").addEventListener("click",
-    ()=> {
-        let numero = document.getElementById('numero').ariaValueMax;
-        if(!isNaN(numero) && numero >= 0)
-        {
-            if(numero % 2 == 0)
-            {
-                alert(`O número: ${numero} é par`);
-            }
-            else
-            {
-                alert(`O número: ${numero} é impar`);
-            }
-        }
-        else
-        {
-            alert("O conteúdo digitado não é um número ou não é positivo")
-        }
+var array = [];
+
+document.getElementById("botao").addEventListener("click", () => {
+    const conteudo = document.getElementById("conteudo").value;
+
+    array.push(conteudo);
+
+    array.sort();
+
+    const lista = document.getElementById("lista"); 
+    
+    
+    lista.innerHTML = ""; // Limpa a lista exibida  
+
+    for (let i = 0; i < array.length; i++) {
+        var li = document.createElement("li"); 
+        var valorArray = document.createTextNode(`${array[i]}`);
+        li.appendChild(valorArray); 
+        lista.appendChild(li); 
     }
-)
+});
